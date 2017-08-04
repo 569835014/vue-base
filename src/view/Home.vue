@@ -13,8 +13,8 @@
       }
     },
     created(){
-      this.$observer.on('a',()=>{
-        console.info(this);
+      this.$observer.on('a',(...arr)=>{
+        console.info(arr);
       })
     }
   }

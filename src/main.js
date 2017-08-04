@@ -11,6 +11,8 @@ Vue.use(Swal);
 Vue.use(storage);
 import store from './vuex/store'
 import {isEmpty} from "./common/common"
+import Api from './api/Api'
+
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 //路由跳转前执行的钩子函数

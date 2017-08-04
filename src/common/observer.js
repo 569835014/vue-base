@@ -1,4 +1,4 @@
-
+//
 const Observer = {
   // 通过on接口监听事件eventName
   // 如果事件eventName被触发，则执行callback回调函数
@@ -23,16 +23,16 @@ const Observer = {
   // 触发事件 eventName
   emit: function (eventName) {
     //你的代码
-    console.info(this);
     if(this.handles[eventName]){
-      for(var i=0;i<this.handles[eventName].length;i++){
-        this.handles[eventName][i](arguments[1]);
+      for(let i=0;i<this.handles[eventName].length;i++){
+        let arr=Array.prototype.slice.call(arguments).splice(1);
+        this.handles[eventName][i].apply(this,arr);
       }
     }
   }
 };
 const Ob={}
-Ob.install = function (Vue, type) {
+Ob.install = function (Vue) {
   // 4. 添加实例方法
   Vue.prototype.$observer = Observer
 };

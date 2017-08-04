@@ -34,9 +34,10 @@
       }
     },
     created(){
+      console.info(Service);
       this.redirect=this.$route.query.redirect//获取url参数
       Service.init(this);//把当然实例给service
-      this.$observer.emit('a')
+      this.$observer.emit('a','1','2','3')
     },
     methods:{
       logo(){//登录发送ajax，api是axios你可以看一下
