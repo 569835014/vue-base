@@ -10,6 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "flex.css": "^1.1.7",
+    "normalize.css": "^7.0.0",
     "sweetalert2": "^6.6.6",
     "vue": "^2.3.3",
     "vue-router": "^2.6.0"
