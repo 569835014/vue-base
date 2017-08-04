@@ -1,0 +1,10 @@
+//ajax请求成功
+const API_SUCCESS_CODE='100000';
+//ajax请求异常
+const API_ABNORMAl_CODE='U0001';
+//ajax请求错误
+const API_ERROR_CODE="U0001";
+//登录失效
+const API_LOGIN_OUT='U0001'
+
+export {API_SUCCESS_CODE,API_ABNORMAl_CODE,API_ERROR_CODE,API_LOGIN_OUT}
