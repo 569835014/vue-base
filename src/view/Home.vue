@@ -12,6 +12,11 @@
         msg: 'Welcome to Your Vue.js App'
       }
     },
+    created(){
+      this.$observer.on('a',()=>{
+        console.info(this);
+      })
+    }
   }
 </script>
 
