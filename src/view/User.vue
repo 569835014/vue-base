@@ -37,7 +37,7 @@
       console.info(Service);
       this.redirect=this.$route.query.redirect//获取url参数
       Service.init(this);//把当然实例给service
-      this.$observer.emit('a','1','2','3')
+      this.$observer.emit('a','1','2','3');
     },
     methods:{
       ...mapActions([

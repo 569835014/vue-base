@@ -18,7 +18,10 @@ const Observer = {
     if(!this.handles[eventName]){
       this.handles[eventName]=[];
     }
-    this.handles[eventName].push(callback);
+
+    if(this.handles[eventName].indexOf(callback)<0){
+      this.handles[eventName].push(callback);
+    }
   },
   // 触发事件 eventName
   emit: function (eventName) {
@@ -29,6 +32,7 @@ const Observer = {
         this.handles[eventName][i].apply(this,arr);
       }
     }
+    this.handles[eventName]=[];
   }
 };
 const Ob={}

@@ -14,7 +14,10 @@
     },
     created(){
       this.$observer.on('a',(...arr)=>{
-        console.info(arr);
+        console.info(1)
+      })
+      this.$observer.on('a',(...arr)=>{
+        console.info(2)
       })
     }
   }
