@@ -22,8 +22,8 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import About from '../service/about/about'
-  let Service=new About();
+  import { mapActions } from 'vuex'
+  import Service from '../service/about/about'
   export default {
     name: 'hello',
     data () {
@@ -40,6 +40,9 @@
       this.$observer.emit('a','1','2','3')
     },
     methods:{
+      ...mapActions([
+        'saveUserInfo'
+      ]),
       logo(){//登录发送ajax，api是axios你可以看一下
         Service.login();
       },
@@ -62,7 +65,7 @@
     computed:{
       // 使用对象展开运算符将 getters 混入 computed 对象中这是vuex稳定里有的
       ...mapGetters({
-        user:'getUserInfo'
+        user:'userInfo'
       })
     }
   }

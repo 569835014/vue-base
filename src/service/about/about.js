@@ -13,7 +13,7 @@ class About extends Service{
         pwd:_this.pwd
       },
       success(res){
-        _this.$store.commit('USER_INFO',res);//登录成功后把用户信息保存到vuex里面
+        _this.saveUserInfo(res);//登录成功后把用户信息保存到vuex里面
         if(_this.redirect){//this.redirect有值说明是被没有登录被拦截，然后转发到登录，登录后才能跳到这个路由，这是为了用户体验
           _this.$router.push({
             name:_this.redirect
@@ -33,7 +33,7 @@ class About extends Service{
       },
       success(res){
         var obj=res.data;
-        _this.$store.commit('USER_INFO',obj);//登录成功后把用户信息保存到vuex里面
+        _this.saveUserInfo(obj);//登录成功后把用户信息保存到vuex里面
         if(_this.redirect){//this.redirect有值说明是被没有登录被拦截，然后转发到登录，登录后才能跳到这个路由，这是为了用户体验
           _this.$router.push({
             name:_this.redirect
@@ -62,7 +62,7 @@ class About extends Service{
       },
       success(res){
         var obj=res.data;
-        _this.$store.commit('USER_INFO',obj);//登录成功后把用户信息保存到vuex里面
+        _this.saveUserInfo(obj);//登录成功后把用户信息保存到vuex里面
         if(_this.redirect){//this.redirect有值说明是被没有登录被拦截，然后转发到登录，登录后才能跳到这个路由，这是为了用户体验
           _this.$router.push({
             name:_this.redirect
@@ -72,4 +72,4 @@ class About extends Service{
     })
   }
 }
-export default About
+export default new About();

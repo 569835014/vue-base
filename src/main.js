@@ -3,13 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import storage from './common/Session'
 import OB from './common/observer'
 import Swal from './common/alert'
 Vue.use(OB);
 Vue.use(Swal);
-Vue.use(storage);
-import store from './vuex/store'
+import Session from './common/Session'
+import store from './vuex/index'
 import {isEmpty} from "./common/common"
 import Api from './api/Api'
 
@@ -18,7 +17,7 @@ Vue.config.productionTip = false
 //路由跳转前执行的钩子函数
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-    if (!isEmpty(Vue.prototype.$storage.getItem('user'))) {  // 通过vuex state获取当前的token是否存在
+    if (!isEmpty(Session.getItem('user'))) {  // 通过vuex state获取当前的token是否存在
       next();
     }
     else {

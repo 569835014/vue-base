@@ -26,4 +26,5 @@ const storage={};
   // 4. 添加实例方法
   Vue.prototype.$storage = new Session(type)
 };
-export default storage
+const session =new Session();
+export default session;
