@@ -1,5 +1,5 @@
 //
-const Observer = {
+const Observer  = {
   // 通过on接口监听事件eventName
   // 如果事件eventName被触发，则执行callback回调函数
   handles:{},
