@@ -124,7 +124,44 @@ class Service {
   }
   init(vue){
     this.vm=vue;
+    if (!Service.isinIt) {//相当于静态属性当属性被调用过就不再初始化axios
+
+      // http request 拦截器
+      axios.interceptors.request.use(
+        config => {
+          console.info(this.vm);
+          if (this.vm.$store.token) {  // 判断是否存在token，如果存在的话，则每个http header都加上token
+            config.headers.Authorization = `token ${this.vm.$store.token}`;
+          }
+          return config;
+        },
+        err => {
+          return Promise.reject(err);
+        });
+
+// http response 拦截器
+      axios.interceptors.response.use(
+        response => {
+          return response;
+        },
+        error => {
+          if (error.response) {
+            switch (error.response.status) {
+              case 401:
+                // 返回 401 清除token信息并跳转到登录页面
+                // this.vm.commit(types.LOGOUT);
+                this.vm.$router.replace({
+                  path: 'login',
+                  query: {redirect: this.vm.$router.currentRoute.fullPath}
+                })
+            }
+          }
+          return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+        });
+      Service.isinIt=true;
+    }//ajax传入token
   }
 
 }
+Service.isinIt=false;
 export default Service
