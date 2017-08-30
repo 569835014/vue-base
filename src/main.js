@@ -10,8 +10,8 @@ Vue.use(Swal);
 import Session from './common/Session'
 import store from './vuex/index'
 import {isEmpty} from "./common/common"
-import Api from './api/Api'
-
+import vuelidate from './common/vuelidate'
+Vue.use(vuelidate);
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 //路由跳转前执行的钩子函数

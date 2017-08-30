@@ -6,7 +6,7 @@ class Api{
     if(process.env.NODE_ENV==='development'){
       this.BASE_URL='本地'
     }else{
-      this.BASE_URL='线上'
+       this.BASE_URL='线上'
     }
   }
 }
