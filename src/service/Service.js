@@ -95,18 +95,14 @@ class Service {
   };
   //ajax嵌套，像父ajax返回的结果子ajax拿来继续发ajax这类的调用这个
   async nesting(params){
-    await this.common(params.param)
+    await this.common(params);
     let obj=params.child;
     while (true){
-
       if(obj){
-        await this.common(obj.param);
-        if(obj.fn){
-          obj.fn();
-        }
+        await this.common(obj);
         obj=obj.child;
       }else{
-        break;
+        return;
       }
     }
 
