@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    这是home页
+    这是home页{{sum}}
     <div>测试简单的表单验证</div>
     <div>
       <form v-form="form">
@@ -31,6 +31,8 @@
     name: 'hello',
     data () {
       return {
+        x:4,
+        y:5,
         form:{
           username:"",
           tel:"",
@@ -93,7 +95,25 @@
     },
     created(){
     },
+    computed:{
+      sum2(){
+        return this.x + this.y
+      }
+    },
+    asyncComputed: {
+      async sum() {
+
+        return  await this.setY();
+      }
+    },
     methods:{
+      setY(){
+        return new Promise(resolve=>{
+          const total = this.x + this.y
+          setTimeout(()=>resolve(total),4000)
+        })
+
+      },
       submit(){
         this.$observer.emit('form');
       }

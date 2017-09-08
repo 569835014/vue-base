@@ -22,6 +22,7 @@
       ...mapGetters({
         user:'userInfo'
       })
+
     }
   }
 </script>

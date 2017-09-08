@@ -11,6 +11,9 @@ import Session from './common/Session'
 import store from './vuex/index'
 import {isEmpty} from "./common/common"
 import vuelidate from './common/vuelidate'
+import AsyncComputed from 'vue-async-computed'
+
+Vue.use(AsyncComputed)
 Vue.use(vuelidate);
 Vue.config.productionTip = false
 /* eslint-disable no-new */
